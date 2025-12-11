@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "title": "KOB Choceň | CHC orientační běh",
+    "description": "Oficiální web orientačního běžeckého klubu KOB Choceň."
+  },
+  "layout": {
+    "club": "KOB Choceň",
+    "title": "CHC orientační běh",
+    "notifications": "Oznámení",
+    "toggleLanguage": "Přepnout jazyk",
+    "toggleThemeLight": "Přepnout na světlý mód",
+    "toggleThemeDark": "Přepnout na tmavý mód",
+    "nav": {
+      "home": "Domů",
+      "calendar": "Kalendář",
+      "about": "O klubu",
+      "links": "Odkazy",
+      "profile": "Profil"
+    }
+  },
+  "links": {
+    "title": "Užitečné odkazy",
+    "searchPlaceholder": "Hledat v odkazech...",
+    "sections": {
+      "systems": {
+        "label": "Závodní systémy",
+        "items": {
+          "oris": {
+            "title": "ORIS",
+            "description": "Informační systém ČSOS - přihlášky"
+          },
+          "obo": {
+            "title": "IS OBO",
+            "description": "Regionální informační portál"
+          }
+        }
+      },
+      "documents": {
+        "label": "Svazové dokumenty",
+        "items": {
+          "csos": {
+            "title": "Web ČSOS",
+            "description": "Oficiální stránky svazu"
+          },
+          "rules": {
+            "title": "Pravidla OB",
+            "description": "Aktuální pravidla pro závodníky"
+          },
+          "guidelines": {
+            "title": "Soutěžní řád",
+            "description": "Dokumenty pro pořadatele závodů"
+          }
+        }
+      },
+      "club": {
+        "label": "Klubové informace",
+        "items": {
+          "trainings": {
+            "title": "Rozpis tréninků",
+            "description": "Kalendář akcí a soustředění"
+          },
+          "docs": {
+            "title": "Interní dokumenty",
+            "description": "Zápisy, směrnice, příspěvky"
+          },
+          "apparel": {
+            "title": "Klubové oblečení",
+            "description": "Objednávky dresů a souprav"
+          }
+        }
+      },
+      "maps": {
+        "label": "Mapové portály",
+        "items": {
+          "archive": {
+            "title": "Archiv map ČSOS",
+            "description": "Databáze všech orientačních map"
+          }
+        }
+      }
+    },
+    "contactCta": "Kontaktovat vedení klubu",
+    "contactNote": "Klub orientačního běhu Choceň © 2025"
+  },
+  "home": {
+    "hero": {
+      "label": "Další závod",
+      "title": "Východočeský pohár",
+      "location": "Vamberk - Peklo",
+      "startLabel": "Start za",
+      "startIn": "3 dny",
+      "imageAlt": "Běžec sprintující s mapou v lese"
+    },
+    "actions": {
+      "title": "Rychlá akce",
+      "calendar": "Kalendář",
+      "results": "Výsledky",
+      "trainings": "Tréninky",
+      "about": "O klubu"
+    },
+    "news": {
+      "title": "Aktuality",
+      "viewAll": "Všechny zprávy",
+      "highlightLabel": "Aktualita",
+      "highlight": {
+        "title": "Registrace na Choceňský pohár",
+        "description": "Největší závod sezóny se blíží. Připravili jsme pro vás nové tratě v náročném terénu. Registrace otevřena do pátku.",
+        "date": "12. 10. 2023",
+        "badge": "Důležité",
+        "cta": "Registrovat",
+        "imageAlt": "Buzola položená na mapě"
+      },
+      "items": {
+        "training": {
+          "category": "Trénink",
+          "title": "Změna času čtvrtečního tréninku",
+          "description": "Sraz se posouvá na 17:00 kvůli dřívějšímu stmívání. Nezapomeňte čelovky!",
+          "imageAlt": "Skupina běžců se protahuje"
+        },
+        "club": {
+          "category": "Klub",
+          "title": "Podzimní brigáda na chatě",
+          "description": "Přijďte pomoci s přípravou dříví na zimu. Občerstvení zajištěno.",
+          "imageAlt": "Klubová chata v lese"
+        },
+        "race": {
+          "category": "Závody",
+          "title": "Výsledky ze štafet",
+          "description": "Naše dorostenecká štafeta vybojovala skvělé 3. místo na MČR!",
+          "imageAlt": "Kontrolní lampion v lese"
+        }
+      }
+    },
+    "partners": {
+      "title": "Hlavní partneři a podporovatelé",
+      "cards": {
+        "club": {
+          "label": "Podpora klubu",
+          "description": "Děkujeme za podporu od <highlight>NAD ORLICÍ</highlight>, která nám pomáhá rozvíjet orientační běh v regionu."
+        },
+        "institutional": {
+          "label": "Institucionální podpora",
+          "description": "Naše činnost v roce 2025 je realizována s finanční podporou <highlight>Pardubického kraje</highlight> a <highlight>Národní sportovní agentury</highlight>."
+        }
+      }
+    },
+    "instagram": {
+      "title": "Instagram",
+      "subtitle": "Sledujte nás na @kobchocen",
+      "cta": "Otevřít profil",
+      "posts": {
+        "training": {
+          "caption": "Testovali jsme nové tratě pro jarní soustředění.",
+          "time": "Před 2 dny"
+        },
+        "relay": {
+          "caption": "Dorostenecké štafety se připravují na další závody.",
+          "time": "Před 5 dny"
+        },
+        "camp": {
+          "caption": "Letní mapové soustředění na Kunětické hoře.",
+          "time": "Před týdnem"
+        }
+      }
+    },
+    "upcoming": {
+      "title": "Následující závody",
+      "cta": "Zobrazit kalendář",
+      "items": {
+        "springClassic": {
+          "title": "Jarní klasika",
+          "location": "Choceň - Hemže",
+          "date": "5. dubna",
+          "level": "Regionální"
+        },
+        "relayCup": {
+          "title": "Pohár štafet",
+          "location": "Vysoké Mýto",
+          "date": "18. dubna",
+          "level": "Liga"
+        },
+        "nightSprint": {
+          "title": "Noční sprint",
+          "location": "Hradec Králové",
+          "date": "26. dubna",
+          "level": "MČR"
+        }
+      }
+    },
+    "archive": {
+      "title": "Mapový archiv",
+      "subtitle": "Poslední přidané mapy z tréninků a závodů.",
+      "cta": "Otevřít archiv",
+      "items": {
+        "peklo": {
+          "name": "Peklo 2025",
+          "type": "Lesní klasika",
+          "date": "30. března"
+        },
+        "chocen": {
+          "name": "Choceň centrum",
+          "type": "Sprint",
+          "date": "22. března"
+        },
+        "orlicke": {
+          "name": "Orlické hory",
+          "type": "Tréninková mapa",
+          "date": "15. března"
+        }
+      }
+    },
+    "partnerLogos": {
+      "title": "Partneři klubu",
+      "logos": {
+        "nadOrlici": "NAD ORLICÍ",
+        "pardubice": "Pardubický kraj",
+        "nsa": "Národní sportovní agentura",
+        "city": "Město Choceň"
+      }
+    },
+    "footer": {
+      "follow": "Sledujte nás",
+      "subtitle": "Neuniknou vám žádné novinky z klubu.",
+      "rights": "© 2025 KOB Choceň. Všechna práva vyhrazena.",
+      "social": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "youtube": "YouTube"
+      }
+    }
+  },
+  "calendar": {
+    "title": "Kalendář akcí",
+    "today": "Dnes",
+    "viewModes": {
+      "month": "Měsíční",
+      "list": "Seznam"
+    },
+    "filters": {
+      "all": "Vše",
+      "trainings": "Tréninky",
+      "races": "Závody",
+      "camps": "Soustředění"
+    },
+    "monthLabel": "Říjen 2023",
+    "weekdays": ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+    "upcomingTitle": "Nadcházející události",
+    "viewAll": "Zobrazit vše",
+    "events": {
+      "mapTraining": {
+        "tag": "Trénink",
+        "time": "Dnes, 17:30",
+        "title": "Mapový trénink",
+        "location": "Park Choceň - sraz u altánu",
+        "group": "Dorost & Dospělí",
+        "detail": "Detail"
+      },
+      "race": {
+        "tag": "Závod",
+        "time": "So, 14. 10. @ 10:00",
+        "title": "Oblastní žebříček",
+        "location": "Vamberk - Peklo",
+        "map": "Zobrazit mapu"
+      },
+      "camp": {
+        "tag": "Soustředění",
+        "time": "20.–22. 10.",
+        "title": "Podzimní soustředění",
+        "location": "Vysočina Arena"
+      },
+      "runTraining": {
+        "tag": "Trénink",
+        "time": "Út, 24. 10. @ 17:30",
+        "title": "Běžecký trénink",
+        "location": "Stadion Choceň"
+      }
+    },
+    "floatingCta": "Přidat akci"
+  },
+  "about": {
+    "title": "O klubu",
+    "hero": {
+      "badge": "O klubu",
+      "title": "KOB Choceň",
+      "description": "Jsme komunita nadšenců, kteří spojují lásku k pohybu s orientací v přírodě. Od roku 1980 vychováváme talenty a pořádáme závody pro veřejnost.",
+      "stats": {
+        "members": {
+          "value": "100+",
+          "label": "Aktivních členů"
+        },
+        "events": {
+          "value": "40",
+          "label": "Akcí ročně"
+        },
+        "founded": {
+          "value": "1980",
+          "label": "Rok založení"
+        }
+      }
+    },
+    "mission": {
+      "label": "Poslání",
+      "title": "Podporovat aktivní životní styl a lásku k přírodě u všech generací."
+    },
+    "vision": {
+      "label": "Vize",
+      "title": "Být předním klubem v regionu a vychovávat budoucí mistry."
+    },
+    "values": {
+      "fairPlay": {
+        "title": "Fair play",
+        "description": "Čestné jednání na trati i mimo ni."
+      },
+      "nature": {
+        "title": "Respekt k přírodě",
+        "description": "Les je naše hřiště, které chráníme."
+      },
+      "community": {
+        "title": "Komunita",
+        "description": "Přátelské prostředí pro rodiny i jednotlivce."
+      }
+    },
+    "valuesTitle": "Naše hodnoty",
+    "history": {
+      "title": "Historie klubu",
+      "entries": {
+        "founding": {
+          "year": "1980",
+          "title": "Založení klubu",
+          "description": "Vznik prvního oddílu orientačního běhu v Chocni."
+        },
+        "champion": {
+          "year": "1995",
+          "title": "První mistr ČR",
+          "description": "Dorostenec klubu vyhrál mistrovství republiky."
+        },
+        "clubhouse": {
+          "year": "2010",
+          "title": "Nová klubovna",
+          "description": "Dokončení rekonstrukce zázemí u lesoparku."
+        },
+        "today": {
+          "year": "Současnost",
+          "title": "Moderní éra",
+          "description": "Více než 100 aktivních členů a pravidelné závody."
+        }
+      }
+    },
+    "leadership": {
+      "title": "Vedení klubu",
+      "cta": "Zobrazit vše",
+      "members": {
+        "chairman": {
+          "name": "Ing. Petr Novák",
+          "role": "Předseda"
+        },
+        "coach": {
+          "name": "Jana Dvořáková",
+          "role": "Trenér mládeže"
+        },
+        "treasurer": {
+          "name": "Tomáš Černý",
+          "role": "Hospodář"
+        },
+        "events": {
+          "name": "Eva Malá",
+          "role": "Pořadatelka"
+        }
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "mapCta": "Otevřít mapu",
+      "items": {
+        "address": {
+          "label": "Adresa",
+          "value": "U Koupaliště 123, 565 01 Choceň"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@kobchocen.cz"
+        },
+        "phone": {
+          "label": "Telefon",
+          "value": "+420 123 456 789"
+        }
+      },
+      "social": {
+        "site": "Web",
+        "instagram": "Instagram"
+      },
+      "footer": "© 2025 KOB Choceň. Všechna práva vyhrazena."
+    }
+  }
+}

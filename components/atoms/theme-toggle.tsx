@@ -4,11 +4,13 @@ import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/theme-provider";
+import { useTheme } from "@/providers/theme-provider";
 
 export function ThemeToggle() {
   const t = useTranslations("layout");
   const { theme, toggleTheme } = useTheme();
+
+  // During SSR, theme = undefined → fallback = light
   const isDark = theme === "dark";
 
   return (

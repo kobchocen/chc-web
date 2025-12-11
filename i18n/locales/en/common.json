@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "title": "KOB Choceň | CHC Orienteering",
+    "description": "Official website of the KOB Choceň orienteering club."
+  },
+  "layout": {
+    "club": "KOB Choceň",
+    "title": "CHC Orienteering",
+    "notifications": "Notifications",
+    "toggleLanguage": "Switch language",
+    "toggleThemeLight": "Switch to light mode",
+    "toggleThemeDark": "Switch to dark mode",
+    "nav": {
+      "home": "Home",
+      "calendar": "Calendar",
+      "about": "About",
+      "links": "Links",
+      "profile": "Profile"
+    }
+  },
+  "links": {
+    "title": "Useful links",
+    "searchPlaceholder": "Search through links...",
+    "sections": {
+      "systems": {
+        "label": "Race systems",
+        "items": {
+          "oris": {
+            "title": "ORIS",
+            "description": "Czech O-Federation entries & info"
+          },
+          "obo": {
+            "title": "IS OBO",
+            "description": "Regional information portal"
+          }
+        }
+      },
+      "documents": {
+        "label": "Federation documents",
+        "items": {
+          "csos": {
+            "title": "ČSOS website",
+            "description": "Official federation page"
+          },
+          "rules": {
+            "title": "Orienteering rules",
+            "description": "Latest competitor regulations"
+          },
+          "guidelines": {
+            "title": "Competition manual",
+            "description": "Guidelines for organisers"
+          }
+        }
+      },
+      "club": {
+        "label": "Club resources",
+        "items": {
+          "trainings": {
+            "title": "Training schedule",
+            "description": "Calendar of practices & camps"
+          },
+          "docs": {
+            "title": "Internal documents",
+            "description": "Minutes, policies, membership"
+          },
+          "apparel": {
+            "title": "Club apparel",
+            "description": "Order racing kits and gear"
+          }
+        }
+      },
+      "maps": {
+        "label": "Map portals",
+        "items": {
+          "archive": {
+            "title": "ČSOS map archive",
+            "description": "Nationwide map database"
+          }
+        }
+      }
+    },
+    "contactCta": "Contact club management",
+    "contactNote": "Choceň Orienteering Club © 2025"
+  },
+  "home": {
+    "hero": {
+      "label": "Next race",
+      "title": "East Bohemia Cup",
+      "location": "Vamberk - Peklo",
+      "startLabel": "Starts in",
+      "startIn": "3 days",
+      "imageAlt": "Runner sprinting with a map in the forest"
+    },
+    "actions": {
+      "title": "Quick actions",
+      "calendar": "Calendar",
+      "results": "Results",
+      "trainings": "Trainings",
+      "about": "About club"
+    },
+    "news": {
+      "title": "News",
+      "viewAll": "All posts",
+      "highlightLabel": "Highlight",
+      "highlight": {
+        "title": "Registration for Choceň Cup",
+        "description": "The biggest race of the season is coming. We prepared new courses in demanding terrain. Registration open until Friday.",
+        "date": "12 Oct 2023",
+        "badge": "Important",
+        "cta": "Register",
+        "imageAlt": "Compass resting on a map"
+      },
+      "items": {
+        "training": {
+          "category": "Training",
+          "title": "Time change for Thursday practice",
+          "description": "Start moved to 17:00 because of early dusk. Bring your headlamps!",
+          "imageAlt": "Group of runners stretching"
+        },
+        "club": {
+          "category": "Club",
+          "title": "Autumn work party",
+          "description": "Come help prepare firewood for winter. Refreshments provided.",
+          "imageAlt": "Club cabin in the woods"
+        },
+        "race": {
+          "category": "Races",
+          "title": "Relay results",
+          "description": "Our junior relay finished an excellent 3rd place at nationals!",
+          "imageAlt": "Orienteering control in the forest"
+        }
+      }
+    },
+    "partners": {
+      "title": "Main partners & supporters",
+      "cards": {
+        "club": {
+          "label": "Club support",
+          "description": "Many thanks to <highlight>NAD ORLICÍ</highlight> for helping us grow orienteering in our region."
+        },
+        "institutional": {
+          "label": "Institutional support",
+          "description": "Our activities in 2025 are made possible thanks to the financial support of <highlight>Pardubice Region</highlight> and the <highlight>National Sports Agency</highlight>."
+        }
+      }
+    },
+    "instagram": {
+      "title": "Instagram",
+      "subtitle": "Follow us @kobchocen",
+      "cta": "Open profile",
+      "posts": {
+        "training": {
+          "caption": "Testing fresh courses for the spring training camp.",
+          "time": "2 days ago"
+        },
+        "relay": {
+          "caption": "Junior relays getting ready for the next cup round.",
+          "time": "5 days ago"
+        },
+        "camp": {
+          "caption": "Summer map camp on Kunětická Hora.",
+          "time": "1 week ago"
+        }
+      }
+    },
+    "upcoming": {
+      "title": "Upcoming races",
+      "cta": "View calendar",
+      "items": {
+        "springClassic": {
+          "title": "Spring Classic",
+          "location": "Choceň - Hemže",
+          "date": "5 April",
+          "level": "Regional"
+        },
+        "relayCup": {
+          "title": "Relay Cup",
+          "location": "Vysoké Mýto",
+          "date": "18 April",
+          "level": "League"
+        },
+        "nightSprint": {
+          "title": "Night Sprint",
+          "location": "Hradec Králové",
+          "date": "26 April",
+          "level": "Czech Champs"
+        }
+      }
+    },
+    "archive": {
+      "title": "Map archive",
+      "subtitle": "Latest maps from trainings and races.",
+      "cta": "Open archive",
+      "items": {
+        "peklo": {
+          "name": "Peklo 2025",
+          "type": "Forest classic",
+          "date": "30 March"
+        },
+        "chocen": {
+          "name": "Choceň centre",
+          "type": "Sprint",
+          "date": "22 March"
+        },
+        "orlicke": {
+          "name": "Orlické Mountains",
+          "type": "Training map",
+          "date": "15 March"
+        }
+      }
+    },
+    "partnerLogos": {
+      "title": "Club partners",
+      "logos": {
+        "nadOrlici": "NAD ORLICÍ",
+        "pardubice": "Pardubice Region",
+        "nsa": "National Sports Agency",
+        "city": "City of Choceň"
+      }
+    },
+    "footer": {
+      "follow": "Stay connected",
+      "subtitle": "Get club news straight to your feed.",
+      "rights": "© 2025 KOB Choceň. All rights reserved.",
+      "social": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "youtube": "YouTube"
+      }
+    }
+  },
+  "calendar": {
+    "title": "Events calendar",
+    "today": "Today",
+    "viewModes": {
+      "month": "Monthly",
+      "list": "List"
+    },
+    "filters": {
+      "all": "All",
+      "trainings": "Trainings",
+      "races": "Races",
+      "camps": "Camps"
+    },
+    "monthLabel": "October 2023",
+    "weekdays": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "upcomingTitle": "Upcoming events",
+    "viewAll": "View all",
+    "events": {
+      "mapTraining": {
+        "tag": "Training",
+        "time": "Today, 17:30",
+        "title": "Map training",
+        "location": "Choceň park – gazebo meeting point",
+        "group": "Juniors & Adults",
+        "detail": "Details"
+      },
+      "race": {
+        "tag": "Race",
+        "time": "Sat, Oct 14 @ 10:00",
+        "title": "Regional league",
+        "location": "Vamberk - Peklo",
+        "map": "View map"
+      },
+      "camp": {
+        "tag": "Training camp",
+        "time": "Oct 20–22",
+        "title": "Autumn camp",
+        "location": "Vysočina Arena"
+      },
+      "runTraining": {
+        "tag": "Training",
+        "time": "Tue, Oct 24 @ 17:30",
+        "title": "Running practice",
+        "location": "Choceň stadium"
+      }
+    },
+    "floatingCta": "Add event"
+  },
+  "about": {
+    "title": "About the club",
+    "hero": {
+      "badge": "About the club",
+      "title": "KOB Choceň",
+      "description": "We are a community of enthusiasts combining the love of running with navigation in nature. Since 1980 we have nurtured talent and organised races for everyone.",
+      "stats": {
+        "members": {
+          "value": "100+",
+          "label": "Active members"
+        },
+        "events": {
+          "value": "40",
+          "label": "Events per year"
+        },
+        "founded": {
+          "value": "1980",
+          "label": "Founded"
+        }
+      }
+    },
+    "mission": {
+      "label": "Mission",
+      "title": "Inspire all generations to live actively and love the forest."
+    },
+    "vision": {
+      "label": "Vision",
+      "title": "Lead the region and raise the next champions."
+    },
+    "values": {
+      "fairPlay": {
+        "title": "Fair play",
+        "description": "Integrity on and off the course."
+      },
+      "nature": {
+        "title": "Respect for nature",
+        "description": "The forest is our playground, so we protect it."
+      },
+      "community": {
+        "title": "Community",
+        "description": "A friendly place for families and individuals."
+      }
+    },
+    "valuesTitle": "Our values",
+    "history": {
+      "title": "Club history",
+      "entries": {
+        "founding": {
+          "year": "1980",
+          "title": "Club founded",
+          "description": "Birth of the first orienteering group in Choceň."
+        },
+        "champion": {
+          "year": "1995",
+          "title": "First national champion",
+          "description": "Our junior wins the Czech championship."
+        },
+        "clubhouse": {
+          "year": "2010",
+          "title": "New clubhouse",
+          "description": "Rebuilt base next to the forest park."
+        },
+        "today": {
+          "year": "Today",
+          "title": "Modern era",
+          "description": "100+ members and regular East Bohemia Cup races."
+        }
+      }
+    },
+    "leadership": {
+      "title": "Club leadership",
+      "cta": "See all",
+      "members": {
+        "chairman": {
+          "name": "Ing. Petr Novák",
+          "role": "Chairman"
+        },
+        "coach": {
+          "name": "Jana Dvořáková",
+          "role": "Youth coach"
+        },
+        "treasurer": {
+          "name": "Tomáš Černý",
+          "role": "Treasurer"
+        },
+        "events": {
+          "name": "Eva Malá",
+          "role": "Events"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "mapCta": "Open map",
+      "items": {
+        "address": {
+          "label": "Address",
+          "value": "U Koupaliště 123, 565 01 Choceň"
+        },
+        "email": {
+          "label": "Email",
+          "value": "info@kobchocen.cz"
+        },
+        "phone": {
+          "label": "Phone",
+          "value": "+420 123 456 789"
+        }
+      },
+      "social": {
+        "site": "Website",
+        "instagram": "Instagram"
+      },
+      "footer": "© 2025 KOB Choceň. All rights reserved."
+    }
+  }
+}

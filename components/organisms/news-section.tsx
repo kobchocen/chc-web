@@ -49,11 +49,13 @@ export function NewsSection({
           {viewAllLabel}
         </Button>
       </div>
-      <NewsHighlightCard {...highlight} sectionLabel={highlightLabel} />
-      <div className="space-y-3">
-        {items.map((item) => (
-          <NewsListItem key={item.title} {...item} />
-        ))}
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr),minmax(320px,1fr)]">
+        <NewsHighlightCard {...highlight} sectionLabel={highlightLabel} />
+        <div className="space-y-3">
+          {items.map((item) => (
+            <NewsListItem key={item.title} {...item} />
+          ))}
+        </div>
       </div>
     </section>
   );

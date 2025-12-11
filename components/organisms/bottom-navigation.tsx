@@ -5,6 +5,7 @@ import { LucideIcon } from "lucide-react";
 type NavEntry = {
   label: string;
   icon: LucideIcon;
+  href: string;
   active?: boolean;
 };
 
