@@ -1,28 +1,22 @@
 import Image from "next/image";
-import Link from "next/link";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Flag,
-  Eye,
-  Handshake,
-  Leaf,
-  Users,
-  MapPin,
-  Mail,
-  Phone,
-  Globe,
-  Instagram,
-  MapPinned,
-} from "lucide-react";
+import { Eye, Flag, Handshake, Leaf, Mail, MapPin, MapPinned, Phone, Users } from "lucide-react";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { SectionLabel } from "@/components/atoms/section-label";
+import { ActionListItem } from "@/components/molecules/action-list-item";
+import { InfoCard } from "@/components/molecules/info-card";
+import { PageHeading } from "@/components/molecules/page-heading";
+import { StatCard } from "@/components/molecules/stat-card";
+import { PageSection } from "@/components/organisms/page-section";
+import { PageTemplate } from "@/components/templates";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Locale } from "@/lib/i18n/config";
+import { siteConfig, siteSocialLinks } from "@/config/site";
+import { isLocale } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
 
-type PageParams = { locale: Locale };
+type PageParams = { locale: string };
 
 type PageProps = {
   params: Promise<PageParams>;
@@ -41,6 +35,9 @@ const leadershipImages = {
 
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
   const t = await getTranslations({ locale, namespace: "about" });
 
   const heroStats = ["members", "events", "founded"].map((key) => ({
@@ -50,9 +47,9 @@ export default async function AboutPage({ params }: PageProps) {
   }));
 
   const valueCards = [
-    { key: "fairPlay", icon: Handshake },
-    { key: "nature", icon: Leaf },
-    { key: "community", icon: Users },
+    { key: "fairPlay", icon: Handshake, accent: "primary" as const },
+    { key: "nature", icon: Leaf, accent: "emerald" as const },
+    { key: "community", icon: Users, accent: "amber" as const },
   ].map((value) => ({
     ...value,
     title: t(`values.${value.key}.title`),
@@ -81,9 +78,13 @@ export default async function AboutPage({ params }: PageProps) {
   }));
 
   const contactItems = [
-    { key: "address", href: "#" },
-    { key: "email", href: "mailto:info@kobchocen.cz" },
-    { key: "phone", href: "tel:+420123456789" },
+    {
+      key: "address",
+      href: "https://maps.google.com/?q=U%20Koupali%C5%A1t%C4%9B%20123%2C%20565%2001%20Choce%C5%88",
+      icon: MapPin,
+    },
+    { key: "email", href: "mailto:info@kobchocen.cz", icon: Mail },
+    { key: "phone", href: "tel:+420123456789", icon: Phone },
   ].map((item) => ({
     ...item,
     label: t(`contact.items.${item.key}.label`),
@@ -91,219 +92,213 @@ export default async function AboutPage({ params }: PageProps) {
   }));
 
   return (
-    <div className="space-y-8 lg:space-y-10">
-      <div className="flex items-center gap-3">
-        <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          <Link href="../">
-            <ArrowLeft className="h-4 w-4" />
-            <span className="sr-only">Back</span>
-          </Link>
-        </Button>
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{t("title")}</p>
-      </div>
-
-      <section className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/80 shadow-2xl">
-        <Image
-          alt={t("hero.title")}
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-FsDwENGQ4-OMymvQQCWLZ9llyVcdrqWnFjF-XIZgKhTH1UmaDk1v6j-4LH-PSTeCUFKgLyDbhF1_LDJxafqeOxqo6FhvNjeA7-hm1yh0oBRCxURuK03bRx1lMRO0XUn8Z1GRd5d-PwJfSoBz5IFbrdB_dlbwzDcaiD90GHqk610TW1CsxMHCOcodZ5HDNdAVsrGbiQpdF2sEzvZp8B5XmZFLQMXe7pxpIFxByKcgD2uke0zS6WoZkiac0fXrXesCeqE2Fphaf4g"
-          fill
-          className="object-cover"
-          sizes="(min-width: 1024px) 1200px, 100vw"
+    <PageTemplate
+      heading={
+        <PageHeading
+          title={t("title")}
+          description={t("hero.description")}
+          eyebrow={siteConfig.name}
+          backHref="/"
+          backLabel={t("backLabel")}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background/95" />
-        <div className="relative z-10 flex flex-col items-center gap-6 px-6 py-16 text-center sm:px-10 lg:px-16">
-          <div className="flex items-center gap-2 rounded-full border border-primary/40 bg-background/80 px-4 py-1 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            {t("hero.badge")}
-          </div>
-          <div className="space-y-3 max-w-3xl">
-            <h1 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl lg:text-5xl">
-              {t("hero.title")}
-            </h1>
-            <p className="text-base text-muted-foreground sm:text-lg">{t("hero.description")}</p>
-          </div>
-          <div className="grid w-full gap-4 sm:grid-cols-3">
+      }
+      lead={
+        <>
+          <section className="surface-panel overflow-hidden">
+            <div className="relative min-h-[22rem] overflow-hidden">
+              <Image
+                alt={t("hero.title")}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-FsDwENGQ4-OMymvQQCWLZ9llyVcdrqWnFjF-XIZgKhTH1UmaDk1v6j-4LH-PSTeCUFKgLyDbhF1_LDJxafqeOxqo6FhvNjeA7-hm1yh0oBRCxURuK03bRx1lMRO0XUn8Z1GRd5d-PwJfSoBz5IFbrdB_dlbwzDcaiD90GHqk610TW1CsxMHCOcodZ5HDNdAVsrGbiQpdF2sEzvZp8B5XmZFLQMXe7pxpIFxByKcgD2uke0zS6WoZkiac0fXrXesCeqE2Fphaf4g"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 1200px, 100vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background/95" />
+              <div className="relative z-10 flex h-full flex-col justify-end gap-5 px-6 py-10 sm:px-10 lg:px-12">
+                <div className="max-w-2xl space-y-3">
+                  <SectionLabel className="text-primary">{t("hero.badge")}</SectionLabel>
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                    {t("hero.title")}
+                  </h2>
+                  <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+                    {t("mission.title")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div className="grid gap-4 sm:grid-cols-3">
             {heroStats.map((stat) => (
-              <Card key={stat.id} className="border-border/70 bg-background/70 p-4 text-center">
-                <p className="text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {stat.label}
-                </p>
-              </Card>
+              <StatCard key={stat.id} value={stat.value} label={stat.label} />
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="grid gap-4 lg:grid-cols-2">
-        <Card className="border-border/70 bg-card/80 p-6">
-          <div className="flex items-center gap-3 text-primary">
-            <Flag className="h-5 w-5" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-              {t("mission.label")}
-            </span>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <InfoCard
+              icon={Flag}
+              eyebrow={t("mission.label")}
+              title={t("mission.title")}
+              accent="primary"
+            />
+            <InfoCard
+              icon={Eye}
+              eyebrow={t("vision.label")}
+              title={t("vision.title")}
+              accent="sky"
+            />
           </div>
-          <p className="mt-3 text-lg font-semibold text-foreground">{t("mission.title")}</p>
-        </Card>
-        <Card className="border-border/70 bg-card/80 p-6">
-          <div className="flex items-center gap-3 text-primary">
-            <Eye className="h-5 w-5" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-              {t("vision.label")}
-            </span>
-          </div>
-          <p className="mt-3 text-lg font-semibold text-foreground">{t("vision.title")}</p>
-        </Card>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-foreground">{t("valuesTitle")}</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {valueCards.map((value) => (
-            <Card key={value.key} className="border-border/70 bg-card/80 p-5">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <value.icon className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{value.title}</p>
-                  <p className="text-xs text-muted-foreground">{value.description}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-xl font-semibold text-foreground">{t("history.title")}</h2>
-        <div className="relative pl-10">
-          <span className="absolute left-4 top-0 h-full w-px bg-border/70" aria-hidden="true" />
-          {timeline.map((entry, index) => (
-            <div key={entry.key} className="relative flex gap-6 pb-10 last:pb-0">
-              <div className="flex flex-col items-center">
-                <span
-                  className={cn(
-                    "flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-semibold",
-                    entry.highlight
-                      ? "border-primary bg-primary text-primary-foreground shadow-[0_4px_12px_rgba(96,165,250,0.35)]"
-                      : "border-border bg-background text-muted-foreground",
-                  )}
-                >
-                  {index + 1}
-                </span>
-                {index < timeline.length - 1 ? (
-                  <span className="mt-2 block h-full w-px bg-border/70" aria-hidden="true" />
-                ) : null}
-              </div>
-              <div className="flex-1 space-y-2">
-                <span
-                  className={cn(
-                    "text-xs font-semibold uppercase tracking-[0.2em]",
-                    entry.highlight ? "text-primary" : "text-muted-foreground",
-                  )}
-                >
-                  {entry.year}
-                </span>
-                <h3 className="text-lg font-semibold text-foreground">{entry.title}</h3>
-                <p className="text-sm text-muted-foreground">{entry.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-foreground">{t("leadership.title")}</h2>
-          <Button variant="ghost" size="sm" className="text-primary">
-            {t("leadership.cta")}
-          </Button>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {leadershipMembers.map((member) => (
-            <Card key={member.key} className="border-border/70 bg-card/80 p-5 text-center">
-              <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-primary/40">
-                <Image
-                  alt={member.name}
-                  src={member.image}
-                  width={80}
-                  height={80}
-                  className="h-full w-full object-cover"
+        </>
+      }
+      main={
+        <>
+          <PageSection title={t("valuesTitle")}>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {valueCards.map((value) => (
+                <InfoCard
+                  key={value.key}
+                  icon={value.icon}
+                  title={value.title}
+                  description={value.description}
+                  accent={value.accent}
                 />
-              </div>
-              <p className="mt-3 text-sm font-semibold text-foreground">{member.name}</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary">{member.role}</p>
-            </Card>
-          ))}
-        </div>
-      </section>
+              ))}
+            </div>
+          </PageSection>
 
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-foreground">{t("contact.title")}</h2>
-        <Card className="border-border/70 bg-card/80">
-          <div className="grid gap-6 p-6 lg:grid-cols-[2fr,1fr]">
-            <div className="space-y-5">
-              <div className="relative h-40 overflow-hidden rounded-2xl border border-border/70">
-                <Image
-                  alt="Club map"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW7IziSJXrQhgtdRL_C5TbEfg1-bfXrokhSCnvpqN5nFAMDORpHPDI1klFEtylIwfq2tnreXF1Ky_8jr0hTQadoXvjQs9TMP0pZkWSHQ9PGn-dlwp7uHCJlSufeIbgNadEa9nvcS3jo4GFi8vAXzw0rEeBFJ9sOsE-buyouqGcNYZd1gt4fcuGQVAsuhRhukdMQ5cFRGoeKPbhyLGXRbbmPzn2cCZAtxSUpmYT3FBe_GceVWWfy0ns-Y4rjT9IRYc522h6_PhFNVk"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 600px, 100vw"
+          <PageSection title={t("history.title")} surface="default" contentClassName="px-6 py-6">
+            <div className="relative pl-10">
+              <span className="absolute left-4 top-0 h-full w-px bg-border/70" aria-hidden="true" />
+              {timeline.map((entry, index) => (
+                <div key={entry.key} className="relative flex gap-6 pb-10 last:pb-0">
+                  <div className="flex flex-col items-center">
+                    <span
+                      className={cn(
+                        "flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-semibold",
+                        entry.highlight
+                          ? "border-primary bg-primary text-primary-foreground shadow-[0_4px_12px_rgba(20,184,166,0.35)]"
+                          : "border-border bg-background text-muted-foreground",
+                      )}
+                    >
+                      {index + 1}
+                    </span>
+                    {index < timeline.length - 1 ? (
+                      <span className="mt-2 block h-full w-px bg-border/70" aria-hidden="true" />
+                    ) : null}
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <span
+                      className={cn(
+                        "text-xs font-semibold uppercase tracking-[0.2em]",
+                        entry.highlight ? "text-primary" : "text-muted-foreground",
+                      )}
+                    >
+                      {entry.year}
+                    </span>
+                    <h3 className="text-lg font-semibold text-foreground">{entry.title}</h3>
+                    <p className="text-sm text-muted-foreground">{entry.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </PageSection>
+
+          <PageSection
+            title={t("leadership.title")}
+            action={
+              <Button variant="ghost" size="sm" className="text-primary">
+                {t("leadership.cta")}
+              </Button>
+            }
+          >
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {leadershipMembers.map((member) => (
+                <InfoCard
+                  key={member.key}
+                  title={member.name}
+                  description={member.role}
+                  align="center"
+                  media={
+                    <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-primary/30">
+                      <Image
+                        alt={member.name}
+                        src={member.image}
+                        width={80}
+                        height={80}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  }
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <Button variant="secondary" className="gap-2">
-                    <MapPinned className="h-4 w-4" />
-                    {t("contact.mapCta")}
-                  </Button>
+              ))}
+            </div>
+          </PageSection>
+
+          <PageSection title={t("contact.title")} surface="default" contentClassName="p-6">
+            <div className="grid gap-6 lg:grid-cols-[1.4fr,1fr]">
+              <div className="space-y-5">
+                <div className="relative h-52 overflow-hidden rounded-3xl border border-border/70">
+                  <Image
+                    alt="Club map"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW7IziSJXrQhgtdRL_C5TbEfg1-bfXrokhSCnvpqN5nFAMDORpHPDI1klFEtylIwfq2tnreXF1Ky_8jr0hTQadoXvjQs9TMP0pZkWSHQ9PGn-dlwp7uHCJlSufeIbgNadEa9nvcS3jo4GFi8vAXzw0rEeBFJ9sOsE-buyouqGcNYZd1gt4fcuGQVAsuhRhukdMQ5cFRGoeKPbhyLGXRbbmPzn2cCZAtxSUpmYT3FBe_GceVWWfy0ns-Y4rjT9IRYc522h6_PhFNVk"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 600px, 100vw"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+                    <Button variant="secondary" className="gap-2" asChild>
+                      <a
+                        href="https://maps.google.com/?q=U%20Koupali%C5%A1t%C4%9B%20123%2C%20565%2001%20Choce%C5%88"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <MapPinned className="h-4 w-4" />
+                        {t("contact.mapCta")}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="grid gap-3">
+                  {contactItems.map((item) => (
+                    <ActionListItem
+                      key={item.key}
+                      href={item.href}
+                      title={item.value}
+                      label={item.label}
+                      icon={item.icon}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="space-y-3">
-                {contactItems.map((item) => (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    className="flex items-center gap-4 rounded-2xl border border-border/60 px-4 py-3 transition hover:border-primary/40"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      {item.key === "address" ? <MapPin className="h-4 w-4" /> : null}
-                      {item.key === "email" ? <Mail className="h-4 w-4" /> : null}
-                      {item.key === "phone" ? <Phone className="h-4 w-4" /> : null}
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        {item.label}
-                      </p>
-                      <p className="text-sm font-medium text-foreground">{item.value}</p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                  </Link>
-                ))}
-              </div>
+
+              <Card className="surface-subtle p-4">
+                <div className="grid gap-3">
+                  {siteSocialLinks
+                    .slice(0, 2)
+                    .map((item) =>
+                      item.href ? (
+                        <ActionListItem
+                          key={item.key}
+                          href={item.href}
+                          title={item.label}
+                          label={
+                            item.key === "website"
+                              ? t("contact.social.site")
+                              : t("contact.social.instagram")
+                          }
+                          icon={item.icon}
+                          tone="primary"
+                        />
+                      ) : null,
+                    )}
+                </div>
+              </Card>
             </div>
-            <div className="space-y-4 rounded-2xl border border-border/60 bg-background/70 p-5">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-foreground">
-                  {t("contact.social.site")}
-                </span>
-                <Button variant="ghost" size="sm" className="text-primary">
-                  <Globe className="mr-2 h-4 w-4" />
-                  kobchocen.cz
-                </Button>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-foreground">
-                  {t("contact.social.instagram")}
-                </span>
-                <Button variant="ghost" size="sm" className="text-primary">
-                  <Instagram className="mr-2 h-4 w-4" />
-                  @kobchocen
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Card>
-      </section>
-    </div>
+          </PageSection>
+        </>
+      }
+    />
   );
 }

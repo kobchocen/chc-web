@@ -2,7 +2,9 @@ import { LucideIcon } from "lucide-react";
 
 import { NewsHighlightCard } from "@/components/molecules/news-highlight-card";
 import { NewsListItem } from "@/components/molecules/news-list-item";
+import { SectionHeading } from "@/components/molecules/section-heading";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/lib/i18n/routing";
 import { cn } from "@/lib/utils";
 
 type Highlight = {
@@ -27,6 +29,7 @@ type NewsItem = {
 type NewsSectionProps = {
   title: string;
   viewAllLabel: string;
+  viewAllHref?: string;
   highlightLabel: string;
   highlight: Highlight;
   items: NewsItem[];
@@ -39,16 +42,22 @@ export function NewsSection({
   highlightLabel,
   highlight,
   items,
+  viewAllHref,
   className,
 }: NewsSectionProps) {
+  const action = viewAllHref ? (
+    <Button variant="link" className="px-0 text-primary" size="sm" asChild>
+      <Link href={viewAllHref}>{viewAllLabel}</Link>
+    </Button>
+  ) : (
+    <Button variant="link" className="px-0 text-primary" size="sm">
+      {viewAllLabel}
+    </Button>
+  );
+
   return (
     <section className={cn("space-y-4", className)}>
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
-        <Button variant="link" className="px-0 text-primary" size="sm">
-          {viewAllLabel}
-        </Button>
-      </div>
+      <SectionHeading title={title} action={action} />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr),minmax(320px,1fr)]">
         <NewsHighlightCard {...highlight} sectionLabel={highlightLabel} />
         <div className="space-y-3">

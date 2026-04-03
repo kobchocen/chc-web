@@ -1,61 +1,40 @@
-# ---- Base image (with pnpm via Corepack) ----
 FROM node:22.20-alpine AS base
 
-# Enable Corepack so we can use pnpm
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN corepack enable
 
 WORKDIR /app
 
-# ---- Dependencies layer ----
 FROM base AS deps
 
-# Only copy files needed for installing dependencies to maximize cache hits
 COPY package.json pnpm-lock.yaml .npmrc ./
-
-# Install all dependencies (dev + prod) for building
 RUN pnpm install --frozen-lockfile
 
-# ---- Build layer ----
 FROM base AS build
 
-# Reuse installed node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-
-# Copy the rest of the source code
 COPY . .
-
-# Build the Next.js app for production
 RUN pnpm build
 
-# ---- Production runtime image ----
 FROM node:22.20-alpine AS runner
 
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Optional: non-root user (good practice)
-# RUN addgroup -S nodejs && adduser -S nextjs -G nodejs
-# USER nextjs
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Copy only necessary runtime files
-COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
-COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=build /app/.npmrc ./.npmrc
+COPY --from=build --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=build --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Enable pnpm again in the runtime image
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
-
-# Install only production dependencies
-RUN pnpm install --frozen-lockfile --prod
+USER nextjs
 
 EXPOSE 3000
 
-# Start Next.js in production mode
-CMD ["pnpm", "start"]
+CMD ["node", "server.js"]

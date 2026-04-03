@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { LocaleProvider } from "@/providers/locale-provider";
 import { SiteLayout } from "@/components/templates/site-layout";
 import { ThemeProvider } from "@/providers/theme-provider";
-import { Locale, locales } from "@/lib/i18n/config";
+import { isLocale, locales } from "@/lib/i18n/config";
 
-type LocaleParams = { locale: Locale };
+type LocaleParams = { locale: string };
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -23,6 +24,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: LocaleMetadataProps): Promise<Metadata> {
   const { locale } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
@@ -33,12 +37,15 @@ export async function generateMetadata({ params }: LocaleMetadataProps): Promise
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
   const messages = await getMessages({ locale });
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <LocaleProvider locale={locale}>
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider>
           <SiteLayout>{children}</SiteLayout>
         </ThemeProvider>
       </LocaleProvider>

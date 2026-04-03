@@ -1,12 +1,12 @@
 ## CHC Web
 
-Internal Next.js application using localization, Prisma ORM, and Tailwind. Follow the steps below to set up the project locally with `.nvmrc` and `pnpm`.
+Next.js application using localized routing, Tailwind CSS v4, shadcn/ui, and Prisma v7 preparation. The repository is `pnpm`-only and currently ships a static-first frontend with mock content while backend integration is being prepared.
 
 ### Requirements
 
 - macOS/Linux with `git`, `curl`, and `bash`
 - [nvm](https://github.com/nvm-sh/nvm) to load the Node version defined in `.nvmrc`
-- `pnpm` 10.20.0 (managed via [Corepack](https://nodejs.org/api/corepack.html) or a global install)
+- `pnpm` 10.20.0 (managed via [Corepack](https://nodejs.org/api/corepack.html))
 
 ### Install Node and pnpm
 
@@ -17,8 +17,6 @@ corepack enable    # enables package manager shims
 corepack prepare pnpm@10.20.0 --activate
 ```
 
-> Alternatively run `npm install -g pnpm@10.20.0`.
-
 ### Environment setup
 
 ```bash
@@ -26,6 +24,8 @@ cp .env.example .env    # adjust the values for your env
 pnpm install            # install dependencies
 pnpm prisma:generate    # generate the Prisma client
 ```
+
+`NEXT_PUBLIC_SITE_MAINTENANCE=true` enables maintenance mode and restricts the public site to the homepage only.
 
 ### Development
 
@@ -38,7 +38,26 @@ The app runs on [http://localhost:3000](http://localhost:3000). Other scripts:
 - `pnpm lint` – run ESLint
 - `pnpm format` – run Prettier
 - `pnpm prisma:studio` – open Prisma Studio
+- `pnpm prisma:generate` – generate Prisma client for backend work
+
+## Documentation
+
+- Repo rules for coding agents: `AGENTS.md`
+- Project docs: `docs/README.md`
+- Deployment packaging: `deploy/helm/charts/chc-web`
+- GitHub automation: `.github/workflows/*.yaml`
 
 ### Deploy
 
-The project targets Vercel (Next.js 16). Before deploying run `pnpm build` and verify database migrations via `pnpm prisma:migrate`.\*\*\*
+Preferred deployment targets:
+
+- Docker image from `Dockerfile`
+- K3s via Helm chart in `deploy/helm/charts/chc-web`
+- GitHub Pages for publishing `docs/` only
+
+Before deploying run:
+
+```bash
+pnpm lint
+pnpm build
+```

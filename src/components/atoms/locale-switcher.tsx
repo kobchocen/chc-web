@@ -20,7 +20,7 @@ export function LocaleSwitcher() {
 
   function handleSwitch() {
     startTransition(() => {
-      router.replace({ pathname, locale: nextLocale });
+      router.replace(pathname, { locale: nextLocale });
     });
   }
 
@@ -31,7 +31,7 @@ export function LocaleSwitcher() {
       disabled={isPending}
       variant="outline"
       size="icon"
-      className="rounded-full border-border bg-card/70 text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+      className="surface-subtle h-10 w-10 border-border text-foreground hover:border-primary/50 hover:text-primary"
       aria-label={t("toggleLanguage")}
     >
       <Languages className="h-5 w-5" />

@@ -18,7 +18,7 @@ export function BottomNavigation({ items, className }: BottomNavigationProps) {
   return (
     <nav
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-background/90 px-3 pb-3 pt-2 backdrop-blur",
+        "fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-background/90 px-3 pb-3 pt-2 backdrop-blur supports-[backdrop-filter]:bg-background/75",
         className,
       )}
     >

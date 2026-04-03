@@ -36,7 +36,7 @@ export function NewsHighlightCard({
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden border-border bg-card/90 shadow-lg transition-transform hover:-translate-y-1",
+        "surface-panel group relative overflow-hidden transition-transform hover:-translate-y-1",
         className,
       )}
     >
@@ -68,7 +68,7 @@ export function NewsHighlightCard({
         <p className="text-sm text-muted-foreground/90">{description}</p>
         <div className="mt-auto flex items-center justify-between pt-2">
           <div className="text-xs font-medium text-muted-foreground">{date}</div>
-          <Button type="button" className="rounded-xl px-4" variant="default" size="sm">
+          <Button type="button" className="px-4" variant="default" size="sm">
             {ctaLabel}
             <IconBadge icon={icon} variant="primary" className="h-9 w-9 rounded-xl" />
           </Button>

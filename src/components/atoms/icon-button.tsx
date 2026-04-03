@@ -15,7 +15,7 @@ export function IconButton({ icon: Icon, className, ...rest }: IconButtonProps) 
       variant="outline"
       size="icon"
       className={cn(
-        "rounded-full border-border bg-card/70 text-foreground hover:border-primary/40 hover:text-primary",
+        "surface-subtle h-10 w-10 border-border text-foreground hover:border-primary/40 hover:text-primary",
         className,
       )}
       type="button"

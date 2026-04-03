@@ -1,76 +1,89 @@
-# High-level guidelines for GitHub Copilot / workspace-style agents in this repo.
-# Focus: Next.js 16, TypeScript, Tailwind v4, shadcn/ui, pnpm.
-
 workspace:
   name: "chc-web"
   description: >
-    Next.js 16 application using the App Router, TypeScript, Tailwind CSS v4,
-    shadcn/ui components, and pnpm as the package manager.
+    Static-first Next.js 16 web application using the App Router, TypeScript,
+    Tailwind CSS v4, shadcn/ui, next-intl, and Prisma v7 preparation.
 
   tech_stack:
-    runtime: "Node.js >= 20.9"
-    package_manager: "pnpm >= 10.20"
+    runtime: "Node.js 22.20.x"
+    package_manager: "pnpm 10.20.x"
     framework: "Next.js 16 (App Router)"
-    language: "TypeScript"
+    language: "TypeScript 5"
+    localization: "next-intl"
+    orm: "Prisma v7 (lazy server-only integration)"
     ui:
       - "React 19"
       - "Tailwind CSS 4"
       - "shadcn/ui"
       - "lucide-react"
     lint_and_format:
-      - "ESLint (flat config via eslint.config.*)"
+      - "ESLint 9 flat config"
       - "Prettier (prettier.config.mjs)"
+      - ".editorconfig"
+    delivery:
+      - "Docker standalone image"
+      - "Helm chart in deploy/helm"
+      - "GitHub Actions workflows"
+      - "GitHub Pages for docs only"
 
   commands:
     dev: "pnpm dev"
     build: "pnpm build"
     lint: "pnpm lint"
     format: "pnpm format"
-    # Add tests later, for example:
-    # test: "pnpm test"
+    format_check: "pnpm format:check"
+    prisma_generate: "pnpm prisma:generate"
 
   layout:
-    app_directory: "app"
-    components_directory: "components"
-    ui_directory: "components/ui"
-    shared_lib_directory: "lib"
+    app_directory: "src/app"
+    components_directory: "src/components"
+    ui_directory: "src/components/ui"
+    shared_lib_directory: "src/lib"
+    config_directory: "src/config"
+    mock_content_directory: "src/lib/content"
+    docs_directory: "docs"
+    deployment_directory: "deploy"
     styles:
-      - "app/globals.css"
-      - "tailwind.config.ts"
+      - "src/app/globals.css"
 
   conventions:
+    - "Use pnpm only. Do not suggest npm, yarn, or bun."
     - "Use TypeScript for all new files (.ts / .tsx)."
     - "Prefer React Server Components by default; add 'use client' only when strictly necessary."
-    - "Use shadcn/ui primitives (Button, Card, Input, Dialog, etc.) instead of raw HTML where appropriate."
-    - "Use Tailwind utility classes for layout, spacing, and typography; avoid custom CSS unless needed."
-    - "Keep components small and focused; extract reusable pieces into components/ or components/ui/."
-    - "Follow existing file/folder naming patterns (kebab-case for routes, PascalCase for components)."
-    - "Do not touch generated or build artifacts (.next, dist, out)."
-    - "Run `pnpm format` and `pnpm lint` before opening a pull request."
+    - "Use shadcn/ui primitives before introducing new low-level UI components."
+    - "Follow atomic design: atoms, molecules, organisms, templates."
+    - "Keep static placeholder data in src/lib/content while the site remains backend-free."
+    - "Treat Prisma as server-only and lazy so the app remains build-safe without DATABASE_URL."
+    - "Keep documentation in docs/."
+    - "Use .yaml, never .yml."
+    - "Use Conventional Commits."
+    - "Run pnpm lint and pnpm build before opening a pull request."
 
   planning_tips:
     feature_workflow:
-      - "When implementing a new feature, start from the relevant route in app/ and identify the affected components."
+      - "Start from the relevant route in src/app and identify the smallest reusable component extraction."
       - "Prefer composition of smaller components over large monolithic pages."
-      - "Update types and API contracts together with the UI that consumes them."
-      - "Keep server-side data fetching close to the route (e.g. page.tsx / layout.tsx) and pass typed props down."
+      - "When adding static content, centralize it in src/lib/content or src/config."
+      - "Keep server-side data fetching close to the route and pass typed props down."
 
     bugfix_workflow:
-      - "Reproduce the bug and add or adjust a test if the project has tests for the affected area."
+      - "Reproduce the bug and add or adjust a unit test once the test stack is present."
       - "Limit changes to the minimal set of files needed to fix the issue."
-      - "Preserve existing public APIs and props signatures unless the bug is caused by them."
+      - "Preserve public behavior unless the issue explicitly requires a change."
 
   context_priority:
     high:
-      - "app/**"
-      - "components/**"
-      - "lib/**"
+      - "src/app/**"
+      - "src/components/**"
+      - "src/lib/**"
+      - "src/config/**"
       - "eslint.config.*"
       - "prettier.config.*"
-      - "tailwind.config.*"
+      - "AGENTS.md"
     medium:
-      - ".vscode/**"
       - ".github/**"
+      - "docs/**"
+      - "deploy/**"
       - "tsconfig.*"
     low:
       - ".next/**"
@@ -79,6 +92,7 @@ workspace:
       - "node_modules/**"
 
   notes_for_ai:
-    - "When creating new UI, use existing shadcn/ui components and Tailwind classes to match the current design."
-    - "When refactoring, keep public behavior identical unless the issue explicitly requires a breaking change."
+    - "Use the current Tailwind v4 token system in src/app/globals.css."
+    - "GitHub Pages is for docs publication from docs/, not for the live Next.js app."
+    - "The preferred production target is Docker plus K3s Helm deployment."
     - "Prefer readability and explicit types over over-optimization."

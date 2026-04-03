@@ -24,7 +24,7 @@ export function NewsListItem({
   return (
     <Card
       className={cn(
-        "group flex cursor-pointer gap-4 p-3 transition-colors hover:border-primary/40 hover:bg-accent",
+        "surface-subtle group flex cursor-pointer gap-4 p-3 transition-colors hover:border-primary/40 hover:bg-accent",
         className,
       )}
     >

@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
+import { SectionHeading } from "@/components/molecules/section-heading";
 import { QuickActionCard } from "@/components/molecules/quick-action-card";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,8 @@ import { cn } from "@/lib/utils";
 type QuickAction = {
   title: string;
   icon: LucideIcon;
+  href?: string;
+  description?: string;
 };
 
 type QuickActionsGridProps = {
@@ -18,15 +21,17 @@ type QuickActionsGridProps = {
 export function QuickActionsGrid({ actions, title, className }: QuickActionsGridProps) {
   return (
     <section className={cn("space-y-3", className)}>
-      <div className="flex items-center justify-between px-1">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          {title}
-        </h2>
-      </div>
-      <Card className="border-border bg-card/80 p-4 sm:p-6">
+      <SectionHeading title={title} />
+      <Card className="surface-panel p-4 sm:p-6">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {actions.map((action) => (
-            <QuickActionCard key={action.title} title={action.title} icon={action.icon} />
+            <QuickActionCard
+              key={action.title}
+              title={action.title}
+              icon={action.icon}
+              href={action.href}
+              description={action.description}
+            />
           ))}
         </div>
       </Card>

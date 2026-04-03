@@ -25,12 +25,7 @@ export function HeroBanner({
   className,
 }: HeroBannerProps) {
   return (
-    <section
-      className={cn(
-        "relative min-h-[20rem] overflow-hidden rounded-3xl border border-border bg-card shadow-2xl",
-        className,
-      )}
-    >
+    <section className={cn("surface-panel relative min-h-[20rem] overflow-hidden", className)}>
       <Image
         alt={imageAlt}
         src={imageUrl}

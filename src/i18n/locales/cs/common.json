@@ -3,24 +3,140 @@
     "title": "KOB Choceň | CHC orientační běh",
     "description": "Oficiální web orientačního běžeckého klubu KOB Choceň."
   },
+  "posts": {
+    "title": "Aktuality a články",
+    "subtitle": "Všechny klubové novinky, výsledky i tréninky přehledně na jednom místě.",
+    "backLabel": "Zpět na hlavní stránku",
+    "searchLabel": "Hledat ve zprávách",
+    "filters": {
+      "all": "Vše",
+      "races": "Závody",
+      "trainings": "Tréninky",
+      "club": "Klub",
+      "camps": "Soustředění"
+    },
+    "hero": {
+      "badge": "Top zpráva",
+      "category": "Závody",
+      "title": "Vítězství na MČR ve štafetách!",
+      "description": "Fantastický úspěch našich dorostenců na mistrovství republiky. Tým ve složení Novák, Svoboda a Dvořák vybojoval zlaté medaile v dramatickém finále.",
+      "date": "12. 10. 2023",
+      "cta": "Číst celý článek",
+      "imageAlt": "Běžec s mapou probíhá cílem lesního závodu"
+    },
+    "list": {
+      "title": "Starší příspěvky",
+      "archiveCta": "Zobrazit archiv",
+      "items": {
+        "camp": {
+          "category": "Soustředění",
+          "title": "Informace k zimnímu soustředění",
+          "description": "Podrobnosti k odjezdu, ubytování a seznam doporučeného vybavení na hory.",
+          "date": "5. 11. 2023"
+        },
+        "results": {
+          "category": "Výsledky",
+          "title": "Výsledky oblastního žebříčku",
+          "description": "Celkové pořadí podzimní části sezóny je zveřejněno. Gratulujeme všem vítězům!",
+          "date": "28. 10. 2023"
+        },
+        "club": {
+          "category": "Klub",
+          "title": "Podzimní brigáda v klubovně",
+          "description": "Přijďte pomoci s úklidem listí a zazimováním areálu. Občerstvení zajištěno.",
+          "date": "15. 10. 2023"
+        },
+        "training": {
+          "category": "Tréninky",
+          "title": "Tréninkový plán na říjen",
+          "description": "Rozpis mapových tréninků a atletické přípravy na stadionu pro všechny skupiny.",
+          "date": "01. 10. 2023"
+        }
+      }
+    },
+    "pagination": {
+      "previous": "Předchozí",
+      "next": "Další",
+      "status": "Stránka {current} / {total}"
+    },
+    "detail": {
+      "back": "Zpět na aktuality",
+      "category": "Závody",
+      "readingTime": "4 min čtení",
+      "title": "Výsledky závodů Východočeského poháru v Adršpachu",
+      "excerpt": "Naši závodníci zvládli náročný pískovcový terén a přivezli cenné výsledky z dalšího kola série.",
+      "author": {
+        "name": "Petr Novák",
+        "role": "Autor článku"
+      },
+      "dateLabel": "Datum",
+      "date": "15. 10. 2023",
+      "location": "Adršpach, Česká republika",
+      "hero": {
+        "imageAlt": "Běžec s mapou v pískovcovém terénu během závodu"
+      },
+      "body": {
+        "lead": "Sobota přinesla další kolo Východočeského poháru a výborné výkony v kamenitém labyrintu Adršpašska.",
+        "paragraphs": [
+          "Tratě postavené v kopcovitém terénu kombinovaly prudké výběhy s rychlými pasážemi po hřebenech. Mapaři připravili několik technických detailů v hustnících, které prověřily koncentraci v závěru.",
+          "Během dne panovalo ideální podzimní počasí. Sluneční paprsky prosvítající přes barevné listí vytvářely výjimečnou atmosféru pro závodníky i diváky. V cíli panovala přátelská nálada a sdílela se radost z podařených výkonů."
+        ],
+        "quote": {
+          "text": "Byl to jeden z nejtěžších závodů sezóny. V pískovcových blocích rozhodovala každá vteřina a precizní čtení vrstevnic.",
+          "author": "Jan Kovář",
+          "role": "Vítěz kategorie H21"
+        },
+        "closing": "Děkujeme všem za reprezentaci klubu a těšíme se na další kolo, které proběhne již příští víkend v Hradci Králové. Nezapomeňte odeslat přihlášku v ORISu do středeční půlnoci."
+      },
+      "success": {
+        "title": "Úspěchy našich členů",
+        "items": [
+          { "label": "1. místo", "text": "Kategorie D12 – Eliška P." },
+          { "label": "2. místo", "text": "Kategorie D18 – Anna D." },
+          { "label": "3. místo", "text": "Kategorie H55 – Pavel S." }
+        ]
+      },
+      "map": {
+        "title": "Mapa závodu",
+        "cta": "Zvětšit",
+        "imageAlt": "Detail tréninkové mapy s vrstevnicemi a kontrolami"
+      },
+      "actions": {
+        "bookmark": "Uložit článek",
+        "share": "Sdílet aktualitu"
+      }
+    }
+  },
   "layout": {
     "club": "KOB Choceň",
-    "title": "CHC orientační běh",
+    "title": "Klub orientačního běhu",
+    "tagline": "Klubový rozcestník pro závody, tréninky, mapy a novinky.",
+    "description": "Jednotný statický web připravený pro budoucí napojení na redakční a databázovou vrstvu.",
+    "maintenance": {
+      "badge": "Web ve výstavbě",
+      "title": "Připravujeme nový klubový web.",
+      "description": "Dočasně necháváme dostupnou pouze domovskou stránku s podporou klubu a partnery.",
+      "cta": "Kontaktovat klub"
+    },
+    "footer": "Všechna práva vyhrazena.",
     "notifications": "Oznámení",
     "toggleLanguage": "Přepnout jazyk",
     "toggleThemeLight": "Přepnout na světlý mód",
     "toggleThemeDark": "Přepnout na tmavý mód",
     "nav": {
       "home": "Domů",
+      "posts": "Aktuality",
       "calendar": "Kalendář",
       "about": "O klubu",
-      "links": "Odkazy",
-      "profile": "Profil"
+      "links": "Odkazy"
     }
   },
   "links": {
     "title": "Užitečné odkazy",
+    "subtitle": "Rozcestník klubových, svazových a mapových zdrojů na jednom místě.",
+    "backLabel": "Zpět na hlavní stránku",
     "searchPlaceholder": "Hledat v odkazech...",
+    "emptyState": "Zadanému filtru neodpovídají žádné odkazy.",
     "sections": {
       "systems": {
         "label": "Závodní systémy",
@@ -231,6 +347,8 @@
   },
   "calendar": {
     "title": "Kalendář akcí",
+    "subtitle": "Přehled tréninků, závodů a soustředění v jednotném klubovém kalendáři.",
+    "backLabel": "Zpět na hlavní stránku",
     "today": "Dnes",
     "viewModes": {
       "month": "Měsíční",
@@ -279,6 +397,7 @@
   },
   "about": {
     "title": "O klubu",
+    "backLabel": "Zpět na hlavní stránku",
     "hero": {
       "badge": "O klubu",
       "title": "KOB Choceň",

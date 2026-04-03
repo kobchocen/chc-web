@@ -3,24 +3,140 @@
     "title": "KOB Choceň | CHC Orienteering",
     "description": "Official website of the KOB Choceň orienteering club."
   },
+  "posts": {
+    "title": "News & Articles",
+    "subtitle": "Every club update, result and training note collected in one feed.",
+    "backLabel": "Back to homepage",
+    "searchLabel": "Search posts",
+    "filters": {
+      "all": "All",
+      "races": "Races",
+      "trainings": "Trainings",
+      "club": "Club",
+      "camps": "Camps"
+    },
+    "hero": {
+      "badge": "Top story",
+      "category": "Races",
+      "title": "Relay champs secure national gold!",
+      "description": "A fantastic run by our juniors at the Czech champs. Novák, Svoboda and Dvořák delivered a flawless race to take the win.",
+      "date": "12 Oct 2023",
+      "cta": "Read article",
+      "imageAlt": "Runner finishing an orienteering race with a map"
+    },
+    "list": {
+      "title": "Older posts",
+      "archiveCta": "Open archive",
+      "items": {
+        "camp": {
+          "category": "Camp",
+          "title": "Winter camp information",
+          "description": "Travel plan, accommodation details and the recommended packing list for the mountains.",
+          "date": "5 Nov 2023"
+        },
+        "results": {
+          "category": "Results",
+          "title": "Regional league standings",
+          "description": "Final rankings of the autumn series are public. Congrats to every category winner!",
+          "date": "28 Oct 2023"
+        },
+        "club": {
+          "category": "Club",
+          "title": "Autumn clubhouse workday",
+          "description": "Join us to clean the leaves and prep the area for winter. Snacks provided.",
+          "date": "15 Oct 2023"
+        },
+        "training": {
+          "category": "Trainings",
+          "title": "October training schedule",
+          "description": "Overview of map trainings and track sessions for every squad.",
+          "date": "1 Oct 2023"
+        }
+      }
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "status": "Page {current} / {total}"
+    },
+    "detail": {
+      "back": "Back to news",
+      "category": "Races",
+      "readingTime": "4 min read",
+      "title": "East Bohemia Cup results from Adršpach",
+      "excerpt": "Our athletes handled the demanding sandstone labyrinth and brought home valuable points from another round of the series.",
+      "author": {
+        "name": "Petr Novák",
+        "role": "Author"
+      },
+      "dateLabel": "Date",
+      "date": "15 Oct 2023",
+      "location": "Adršpach, Czech Republic",
+      "hero": {
+        "imageAlt": "Runner holding a map in a rugged sandstone forest"
+      },
+      "body": {
+        "lead": "Saturday delivered another East Bohemia Cup race with strong performances in the stony maze above Adršpach.",
+        "paragraphs": [
+          "The courses mixed steep climbs with quick ridge passages. Course setters prepared several tricky sections in dense forest, so full focus was needed all the way to the finish.",
+          "Sunny autumn weather and colourful leaves made the experience special both for runners and spectators. Friendly atmosphere in the arena and plenty of cheering pushed everyone to give their best."
+        ],
+        "quote": {
+          "text": "This was one of the toughest events this season. Every second mattered in the sandstone blocks and precise contour reading decided the podium.",
+          "author": "Jan Kovář",
+          "role": "M21 winner"
+        },
+        "closing": "Thank you to everyone for representing the club. The next round takes place next weekend in Hradec Králové, so remember to submit your ORIS entry before Wednesday midnight."
+      },
+      "success": {
+        "title": "Club highlights",
+        "items": [
+          { "label": "1st place", "text": "Women 12 – Eliška P." },
+          { "label": "2nd place", "text": "Women 18 – Anna D." },
+          { "label": "3rd place", "text": "Men 55 – Pavel S." }
+        ]
+      },
+      "map": {
+        "title": "Race map",
+        "cta": "Zoom in",
+        "imageAlt": "Detailed training map with contours and controls"
+      },
+      "actions": {
+        "bookmark": "Save article",
+        "share": "Share update"
+      }
+    }
+  },
   "layout": {
     "club": "KOB Choceň",
-    "title": "CHC Orienteering",
+    "title": "Orienteering club",
+    "tagline": "Club hub for races, trainings, maps and updates.",
+    "description": "A unified static site prepared for a future editorial and database layer.",
+    "maintenance": {
+      "badge": "Website under construction",
+      "title": "We are preparing the new club website.",
+      "description": "For now, only the homepage with club support and partner information remains available.",
+      "cta": "Contact the club"
+    },
+    "footer": "All rights reserved.",
     "notifications": "Notifications",
     "toggleLanguage": "Switch language",
     "toggleThemeLight": "Switch to light mode",
     "toggleThemeDark": "Switch to dark mode",
     "nav": {
       "home": "Home",
+      "posts": "News",
       "calendar": "Calendar",
       "about": "About",
-      "links": "Links",
-      "profile": "Profile"
+      "links": "Links"
     }
   },
   "links": {
     "title": "Useful links",
+    "subtitle": "One place for club, federation and map resources.",
+    "backLabel": "Back to homepage",
     "searchPlaceholder": "Search through links...",
+    "emptyState": "No links match the current filter.",
     "sections": {
       "systems": {
         "label": "Race systems",
@@ -231,6 +347,8 @@
   },
   "calendar": {
     "title": "Events calendar",
+    "subtitle": "Trainings, races and camps collected in one club calendar.",
+    "backLabel": "Back to homepage",
     "today": "Today",
     "viewModes": {
       "month": "Monthly",
@@ -279,6 +397,7 @@
   },
   "about": {
     "title": "About the club",
+    "backLabel": "Back to homepage",
     "hero": {
       "badge": "About the club",
       "title": "KOB Choceň",
