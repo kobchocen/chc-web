@@ -48,7 +48,8 @@ This repository uses `pnpm` only and follows a strict `src/`-based Next.js App R
 - New placeholder content should be added in `src/lib/content`, not hardcoded into route files.
 - Prisma code must stay lazy and server-only so the app can build without a configured database.
 - Maintenance mode is controlled by `NEXT_PUBLIC_SITE_MAINTENANCE` in `.env`.
-- GitHub Pages is reserved for publishing repository documentation from `docs/`, not for serving the Next.js app itself.
+- GitHub Pages export is controlled by `NEXT_PUBLIC_GITHUB_PAGES_EXPORT` and must publish the maintenance-only static build.
+- Repository documentation still lives in `docs/`, but GitHub Pages publishes the static maintenance export of the Next.js app.
 
 ## Delivery rules
 

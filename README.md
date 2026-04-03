@@ -26,6 +26,7 @@ pnpm prisma:generate    # generate the Prisma client
 ```
 
 `NEXT_PUBLIC_SITE_MAINTENANCE=true` enables maintenance mode and restricts the public site to the homepage only.
+`NEXT_PUBLIC_GITHUB_PAGES_EXPORT=true` switches the app to a static export build intended for GitHub Pages.
 
 ### Development
 
@@ -37,6 +38,7 @@ The app runs on [http://localhost:3000](http://localhost:3000). Other scripts:
 
 - `pnpm lint` – run ESLint
 - `pnpm format` – run Prettier
+- `pnpm build:pages` – build the static maintenance export for GitHub Pages
 - `pnpm prisma:studio` – open Prisma Studio
 - `pnpm prisma:generate` – generate Prisma client for backend work
 
@@ -53,7 +55,7 @@ Preferred deployment targets:
 
 - Docker image from `Dockerfile`
 - K3s via Helm chart in `deploy/helm/charts/chc-web`
-- GitHub Pages for publishing `docs/` only
+- GitHub Pages for publishing the static maintenance export
 
 Before deploying run:
 

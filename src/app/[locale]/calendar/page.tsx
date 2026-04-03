@@ -20,6 +20,7 @@ import { PageTemplate } from "@/components/templates";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { isMaintenanceRouteAllowed } from "@/config/features";
 import { siteConfig } from "@/config/site";
 import { isLocale } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
@@ -42,7 +43,7 @@ const eventImages = {
 
 export default async function CalendarPage({ params }: PageProps) {
   const { locale } = await params;
-  if (!isLocale(locale)) {
+  if (!isLocale(locale) || !isMaintenanceRouteAllowed("/calendar")) {
     notFound();
   }
   const t = await getTranslations({ locale, namespace: "calendar" });

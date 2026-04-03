@@ -8,6 +8,7 @@ import { PageHeading } from "@/components/molecules/page-heading";
 import { PageTemplate } from "@/components/templates";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { isMaintenanceRouteAllowed } from "@/config/features";
 import { siteConfig } from "@/config/site";
 import { getMockPostEntries, postsPageConfig } from "@/lib/content/posts";
 import { isLocale, locales } from "@/lib/i18n/config";
@@ -22,6 +23,10 @@ type PageProps = {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
+  if (!isMaintenanceRouteAllowed("/posts")) {
+    return [];
+  }
+
   const entries = getMockPostEntries();
 
   return locales.flatMap((locale) =>
@@ -34,7 +39,7 @@ export async function generateStaticParams() {
 
 export default async function PostDetailPage({ params }: PageProps) {
   const { locale } = await params;
-  if (!isLocale(locale)) {
+  if (!isLocale(locale) || !isMaintenanceRouteAllowed("/posts")) {
     notFound();
   }
   const t = await getTranslations({ locale, namespace: "posts.detail" });

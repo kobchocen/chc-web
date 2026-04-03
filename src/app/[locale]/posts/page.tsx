@@ -9,6 +9,7 @@ import { PageTemplate } from "@/components/templates";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { isMaintenanceRouteAllowed } from "@/config/features";
 import { siteConfig } from "@/config/site";
 import { getMockPostEntries, postImages, postSlugs, postsPageConfig } from "@/lib/content/posts";
 import { isLocale } from "@/lib/i18n/config";
@@ -23,7 +24,7 @@ type PageProps = {
 
 export default async function PostsPage({ params }: PageProps) {
   const { locale } = await params;
-  if (!isLocale(locale)) {
+  if (!isLocale(locale) || !isMaintenanceRouteAllowed("/posts")) {
     notFound();
   }
 

@@ -12,6 +12,7 @@ import { PageSection } from "@/components/organisms/page-section";
 import { PageTemplate } from "@/components/templates";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { isMaintenanceRouteAllowed } from "@/config/features";
 import { siteConfig, siteSocialLinks } from "@/config/site";
 import { isLocale } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
@@ -35,7 +36,7 @@ const leadershipImages = {
 
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
-  if (!isLocale(locale)) {
+  if (!isLocale(locale) || !isMaintenanceRouteAllowed("/about")) {
     notFound();
   }
   const t = await getTranslations({ locale, namespace: "about" });

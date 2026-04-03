@@ -1,12 +1,9 @@
-name: Docs Pages
+name: GitHub Pages
 
 on:
   push:
     branches:
       - main
-    paths:
-      - "docs/**"
-      - ".github/workflows/docs-pages.yaml"
   workflow_dispatch:
 
 permissions:
@@ -15,28 +12,52 @@ permissions:
   id-token: write
 
 concurrency:
-  group: docs-pages
+  group: github-pages
   cancel-in-progress: true
 
 jobs:
   deploy:
-    name: Publish docs to GitHub Pages
+    name: Publish maintenance site to GitHub Pages
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      NEXT_PUBLIC_SITE_MAINTENANCE: "true"
+      NEXT_PUBLIC_GITHUB_PAGES_EXPORT: "true"
+      NEXT_PUBLIC_SITE_BASE_PATH: /${{ github.event.repository.name }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.20.0
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+
+      - name: Build static maintenance site
+        run: pnpm build:pages
+
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: out
 
       - name: Deploy GitHub Pages
         id: deployment

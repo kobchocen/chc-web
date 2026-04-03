@@ -19,6 +19,9 @@ function readBooleanEnv(value: string | undefined, fallback = false) {
 }
 
 export const siteFeatures = {
+  githubPages: {
+    export: readBooleanEnv(process.env.NEXT_PUBLIC_GITHUB_PAGES_EXPORT, false),
+  },
   maintenance: {
     enabled: readBooleanEnv(process.env.NEXT_PUBLIC_SITE_MAINTENANCE, false),
     allowedRoutes: ["/"] as const,
